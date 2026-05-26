@@ -1,3 +1,7 @@
+## 🌐 Навигация
+- [Основная (текущая)](https://github.com/Viacheslav-Sh1/LogUserRequest-Lite/tree/main)
+- [Українська версія](https://github.com/Viacheslav-Sh1/LogUserRequest-Lite/tree/uk)
+
 ## Установка
 
 1. Скачайте архив с модулем  
