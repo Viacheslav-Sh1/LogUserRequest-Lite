@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="uk" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +60,7 @@
         .request-uri { font-family: var(--font-mono); font-size: 0.75rem; word-break: break-all; color: var(--text-muted); margin-top: 6px; }
         .loading, .empty { text-align: center; padding: 40px; color: var(--text-faint); }
         
-        /* Модальное окно */
+        /* Модальне вікно */
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--modal-overlay); display: flex; align-items: flex-start; justify-content: center; z-index: 1000; padding: 20px; padding-top: 60px; backdrop-filter: blur(4px); overflow-y: auto; }
         .modal { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); max-width: 950px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); animation: modalSlide 0.2s ease; max-height: calc(100vh - 80px); overflow-y: auto; }
         @keyframes modalSlide { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
@@ -71,7 +71,7 @@
         .modal-close:hover { color: var(--text); background: var(--surface-3); }
         .modal-body { padding: 24px; }
         
-        /* График в модалке */
+        /* Графік у модалці */
         .lite-chart-block { background: var(--surface-2); border-radius: var(--r-lg); padding: 20px; margin-bottom: 32px; }
         .lite-chart-header { margin-bottom: 16px; }
         .lite-chart-header h3 { font-size: 1rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
@@ -123,49 +123,48 @@
                 <span>LogUserRequest Lite</span>
             </div>
             <button class="btn btn-premium" id="premiumBtn">
-
                 Premium
             </button>
         </div>
         <div class="actions">
-            <button class="btn-icon" id="themeBtn" title="Сменить тему (Alt+T)">
+            <button class="btn-icon" id="themeBtn" title="Змінити тему (Alt+T)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                 </svg>
             </button>
-            <button class="btn btn-ghost" id="logoutBtn">Выйти</button>
+            <button class="btn btn-ghost" id="logoutBtn">Вийти</button>
         </div>
     </div>
     
     <div class="filter-bar">
-        <input type="text" id="uidInput" placeholder="UID пользователя (оставьте пустым для всех)">
-        <button class="btn btn-primary" onclick="applyFilter()">Показать</button>
-        <button class="btn btn-ghost" onclick="resetFilter()">Сбросить</button>
+        <input type="text" id="uidInput" placeholder="UID користувача (залиште пустим для всіх)">
+        <button class="btn btn-primary" onclick="applyFilter()">Показати</button>
+        <button class="btn btn-ghost" onclick="resetFilter()">Скинути</button>
     </div>
     
     <div class="stats-block" id="statsBlock" style="display:none;">
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-value" id="statToday">0</div><div class="stat-label">Запросов сегодня</div></div>
-            <div class="stat-card"><div class="stat-value" id="statMonth">0</div><div class="stat-label">За месяц</div></div>
-            <div class="stat-card"><div class="stat-value" id="statDevices">0</div><div class="stat-label">Устройств</div></div>
-            <div class="stat-card"><div class="stat-value" id="statIps">0</div><div class="stat-label">IP адресов</div></div>
+            <div class="stat-card"><div class="stat-value" id="statToday">0</div><div class="stat-label">Запитів сьогодні</div></div>
+            <div class="stat-card"><div class="stat-value" id="statMonth">0</div><div class="stat-label">За місяць</div></div>
+            <div class="stat-card"><div class="stat-value" id="statDevices">0</div><div class="stat-label">Пристроїв</div></div>
+            <div class="stat-card"><div class="stat-value" id="statIps">0</div><div class="stat-label">IP адрес</div></div>
         </div>
         <div class="top-section">
-            <h3>👥 Топ пользователей</h3>
+            <h3>👥 Топ користувачів</h3>
             <div class="scroll-grid" id="topUsers"></div>
         </div>
         <div class="top-section">
-            <h3>⚡ Топ балансиров</h3>
+            <h3>⚡ Топ балансирів</h3>
             <div class="scroll-grid" id="topBalancers"></div>
         </div>
     </div>
     
     <div class="requests-list" id="requestsList">
-        <div class="loading">Загрузка...</div>
+        <div class="loading">Завантаження...</div>
     </div>
 </div>
 
-<!-- Модальное окно Premium -->
+<!-- Модальне вікно Premium -->
 <div class="modal-overlay hidden" id="premiumModal">
     <div class="modal">
         <div class="modal-header">
@@ -181,7 +180,7 @@
             <button class="modal-close" id="closeModalBtn">✕</button>
         </div>
         <div class="modal-body">
-            <!-- Блок Lite-версии с графиком -->
+            <!-- Блок Lite-версії з графіком -->
             <div class="lite-chart-block">
                 <div class="lite-chart-header">
                     <h3>
@@ -191,7 +190,7 @@
                             <rect x="12.5" y="11" width="3" height="11" rx="1" fill="currentColor" opacity="0.7" />
                             <rect x="18" y="6" width="3" height="16" rx="1" fill="currentColor" opacity="0.45" />
                         </svg>
-                        Активность за 3 дня
+                        Активність за 3 дні
                     </h3>
                 </div>
                 <div class="lite-chart-container">
@@ -202,15 +201,15 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 5v14M19 12l-7 7-7-7"/>
                         </svg>
-                        Прокрутите чтобы увидеть Premium-возможности
+                        Прокрутіть щоб побачити Premium-можливості
                     </span>
                 </div>
             </div>
             
-            <!-- Разделитель / пустое пространство -->
+            <!-- Розділювач / пустий простір -->
             <div style="height: 400px;"></div>
             
-            <!-- Premium секция -->
+            <!-- Premium секція -->
             <div class="premium-section">
                 <div class="premium-header">
                     <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -224,43 +223,43 @@
                 
                 <table class="comparison-table">
                     <thead>
-                        <tr><th>Функция</th><th>Lite-версия</th><th>Premium-версия</th></tr>
+                        <tr><th>Функція</th><th>Lite-версія</th><th>Premium-версія</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="feature-col">Логирование запросов</td><td class="both-col">✅ Все запросы</td><td class="both-col">✅ Все запросы</td></tr>
-                        <tr><td class="feature-col">Фильтрация служебных путей</td><td class="both-col">✅ Хардкод-список</td><td class="premium-col">✅ Гибкий UI + regex + IP</td></tr>
-                        <tr><td class="feature-col">Авторизация</td><td class="both-col">✅ Сессии + rate-limit</td><td class="both-col">✅ Сессии + rate-limit</td></tr>
-                        <tr><td class="feature-col">База данных</td><td class="both-col">✅ SQLite</td><td class="premium-col">✅ SQLite с индексами</td></tr>
-                        <tr><td class="feature-col">Очистка старых записей</td><td class="both-col">✅ По дням (logDay)</td><td class="premium-col">✅ По дням + по размеру БД</td></tr>
-                        <tr><td class="feature-col">Статистика</td><td class="both-col">✅ Топы пользователей и балансиров</td><td class="premium-col">✅ Топы + графики + модальные окна</td></tr>
-                        <tr><td class="feature-col">Тёмная/светлая тема</td><td class="both-col">✅ Есть</td><td class="both-col">✅ Есть</td></tr>
-                        <tr><td class="feature-col">Мобильная адаптация</td><td class="both-col">✅ Есть</td><td class="both-col">✅ Есть</td></tr>
-                        <tr><td class="feature-col">Поиск по UID</td><td class="both-col">✅ Поле ввода</td><td class="premium-col">✅ Поле ввода + модальное окно</td></tr>
-                        <tr><td class="feature-col">Дашборд</td><td class="lite-col">❌ Простой список</td><td class="premium-col">✅ Полноценный SPA с графиками</td></tr>
-                        <tr><td class="feature-col">Дедупликация перебора балансиров</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ First + Last (окно 30 сек)</td></tr>
-                        <tr><td class="feature-col">Фильтр по дате</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ На дашборде</td></tr>
-                        <tr><td class="feature-col">Активность в реальном времени</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ Live-обновления</td></tr>
-                        <tr><td class="feature-col">Экспорт данных</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ CSV/JSON (ZIP)</td></tr>
-                        <tr><td class="feature-col">Массовое удаление</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ С гибкими фильтрами</td></tr>
-                        <tr><td class="feature-col">Архивация</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ По дате + по размеру БД</td></tr>
-                        <tr><td class="feature-col">Telegram-уведомления</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ Мониторинг + архив + ошибки</td></tr>
-                        <tr><td class="feature-col">Health-check</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ API для мониторинга</td></tr>
-                        <tr><td class="feature-col">Настройка фильтров через UI</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ Модальное окно + авто-сохранение</td></tr>
-                        <tr><td class="feature-col">Защита от ReDoS</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ Кэширование regex + таймаут</td></tr>
-                        <tr><td class="feature-col">Очередь с защитой от переполнения</td><td class="lite-col">❌ Нет</td><td class="premium-col">✅ До 50000 записей</td></tr>
-                        <tr><td class="feature-col">Потребление памяти</td><td class="both-col">~20-30 МБ</td><td class="both-col">~50-70 МБ</td></tr>
+                        <tr><td class="feature-col">Логування запитів</td><td class="both-col">✅ Всі запити</td><td class="both-col">✅ Всі запити</td></tr>
+                        <tr><td class="feature-col">Фільтрація службових шляхів</td><td class="both-col">✅ Хардкод-список</td><td class="premium-col">✅ Гнучкий UI + regex + IP</td></tr>
+                        <tr><td class="feature-col">Авторизація</td><td class="both-col">✅ Сесії + rate-limit</td><td class="both-col">✅ Сесії + rate-limit</td></tr>
+                        <tr><td class="feature-col">База даних</td><td class="both-col">✅ SQLite</td><td class="premium-col">✅ SQLite з індексами</td></tr>
+                        <tr><td class="feature-col">Очищення старих записів</td><td class="both-col">✅ По днях (logDay)</td><td class="premium-col">✅ По днях + за розміром БД</td></tr>
+                        <tr><td class="feature-col">Статистика</td><td class="both-col">✅ Топи користувачів і балансирів</td><td class="premium-col">✅ Топи + графіки + модальні вікна</td></tr>
+                        <tr><td class="feature-col">Темна/світла тема</td><td class="both-col">✅ Є</td><td class="both-col">✅ Є</td></tr>
+                        <tr><td class="feature-col">Мобільна адаптація</td><td class="both-col">✅ Є</td><td class="both-col">✅ Є</td></tr>
+                        <tr><td class="feature-col">Пошук за UID</td><td class="both-col">✅ Поле вводу</td><td class="premium-col">✅ Поле вводу + модальне вікно</td></tr>
+                        <tr><td class="feature-col">Дашборд</td><td class="lite-col">❌ Простий список</td><td class="premium-col">✅ Повноцінний SPA з графіками</td></tr>
+                        <tr><td class="feature-col">Дедуплікація перебору балансирів</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ First + Last (вікно 30 сек)</td></tr>
+                        <tr><td class="feature-col">Фільтр за датою</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ На дашборді</td></tr>
+                        <tr><td class="feature-col">Активність в реальному часі</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ Live-оновлення</td></tr>
+                        <tr><td class="feature-col">Експорт даних</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ CSV/JSON (ZIP)</td></tr>
+                        <tr><td class="feature-col">Масове видалення</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ З гнучкими фільтрами</td></tr>
+                        <tr><td class="feature-col">Архівація</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ За датою + за розміром БД</td></tr>
+                        <tr><td class="feature-col">Telegram-сповіщення</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ Моніторинг + архів + помилки</td></tr>
+                        <tr><td class="feature-col">Health-check</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ API для моніторингу</td></tr>
+                        <tr><td class="feature-col">Налаштування фільтрів через UI</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ Модальне вікно + авто-збереження</td></tr>
+                        <tr><td class="feature-col">Захист від ReDoS</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ Кешування regex + таймаут</td></tr>
+                        <tr><td class="feature-col">Черга із захистом від переповнення</td><td class="lite-col">❌ Немає</td><td class="premium-col">✅ До 50000 записів</td></tr>
+                        <tr><td class="feature-col">Споживання пам'яті</td><td class="both-col">~20-30 МБ</td><td class="both-col">~50-70 МБ</td></tr>
                     </tbody>
                 </table>
                 
-                <!-- Видео-обзор -->
+                <!-- Відео-огляд -->
                 <div class="video-container">
                     <iframe src="https://drive.google.com/file/d/1VCgOGJIVy4CVjYV1wL47t_5Vb5dbs-Gg/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
                 
                 <!-- Telegram -->
                 <div class="telegram-section">
-                    <h3>💬 Заинтересовал Premium?</h3>
-                    <p>Напишите автору в Telegram — отвечу на вопросы и дам доступ</p>
+                    <h3>💬 Зацікавив Premium?</h3>
+                    <p>Напишіть автору в Telegram — відповім на питання та надам доступ</p>
                     <a href="https://t.me/Viacheslav_Sh1" target="_blank" class="telegram-link">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.145.118.185.276.204.388.018.112.013.23.01.356z"/>
@@ -298,7 +297,7 @@ let loading = false;
 let allLoaded = false;
 let premiumChart = null;
 
-// Модальное окно
+// Модальне вікно
 const modal = document.getElementById('premiumModal');
 const premiumBtn = document.getElementById('premiumBtn');
 const closeBtn = document.getElementById('closeModalBtn');
@@ -336,10 +335,10 @@ async function loadPremiumChart() {
         let labels, values;
         
         if (result && result.data && result.data.length > 0) {
-            labels = result.data.map(d => new Date(d.date).toLocaleDateString('ru', { day: 'numeric', month: 'short' }));
+            labels = result.data.map(d => new Date(d.date).toLocaleDateString('uk', { day: 'numeric', month: 'short' }));
             values = result.data.map(d => d.count);
         } else {
-            labels = ['Нет данных'];
+            labels = ['Немає даних'];
             values = [0];
         }
         
@@ -348,7 +347,7 @@ async function loadPremiumChart() {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Запросы',
+                    label: 'Запити',
                     data: values,
                     borderColor: accentColor,
                     backgroundColor: accentColor + '20',
@@ -393,7 +392,7 @@ async function loadStats() {
                 <span class="grid-name">${escapeHtml(u.name)}</span>
                 <span class="grid-count">${u.count}</span>
             </div>
-        `).join('') || '<div class="empty">Нет данных</div>';
+        `).join('') || '<div class="empty">Немає даних</div>';
         
         const topBalancers = document.getElementById('topBalancers');
         const balancers = stats.topBalancers || [];
@@ -403,7 +402,7 @@ async function loadStats() {
                 <span class="grid-name">${escapeHtml(b.name)}</span>
                 <span class="grid-count">${b.count}</span>
             </div>
-        `).join('') || '<div class="empty">Нет данных</div>';
+        `).join('') || '<div class="empty">Немає даних</div>';
     } catch(e) {
         console.error('Stats error:', e);
     }
@@ -422,7 +421,7 @@ async function loadRequests(reset = true) {
         
         if (!data || (Array.isArray(data) && data.length === 0)) {
             allLoaded = true;
-            if (skip === 0) document.getElementById('requestsList').innerHTML = '<div class="empty">Нет записей</div>';
+            if (skip === 0) document.getElementById('requestsList').innerHTML = '<div class="empty">Немає записів</div>';
             loading = false;
             return;
         }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="uk" data-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0c0e12" id="metaTheme">
-    <title>LogUserRequest — Вход</title>
+    <title>LogUserRequest — Вхід</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-<button class="theme-toggle" id="themeBtn" title="Сменить тему (Alt+T)">
+<button class="theme-toggle" id="themeBtn" title="Змінити тему (Alt+T)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
@@ -48,11 +48,11 @@
         </svg>
         <span>LogUserRequest <small>Lite</small></span>
     </div>
-    <h2>🔐 Вход</h2>
+    <h2>🔐 Вхід</h2>
     <div class="error" id="errorMsg"></div>
     <form method="post" action="/lite/logrequest/login">
         <input type="password" name="password" placeholder="Пароль" autocomplete="off" autofocus>
-        <button type="submit">Войти</button>
+        <button type="submit">Увійти</button>
     </form>
 </div>
 <script>
@@ -77,15 +77,15 @@ const urlParams = new URLSearchParams(window.location.search);
 const errorEl = document.getElementById('errorMsg');
 if (urlParams.has('error')) {
     const remaining = urlParams.get('remaining');
-    errorEl.innerText = remaining ? `Неверный пароль. Осталось попыток: ${remaining}` : 'Неверный пароль';
+    errorEl.innerText = remaining ? `Невірний пароль. Залишилось спроб: ${remaining}` : 'Невірний пароль';
     errorEl.classList.add('show');
 }
 if (urlParams.has('blocked')) {
-    errorEl.innerText = 'Доступ заблокирован на сутки';
+    errorEl.innerText = 'Доступ заблоковано на добу';
     errorEl.classList.add('show');
 }
 
-// Предотвращаем возврат на auth через кнопку "назад"
+// Запобігаємо поверненню на auth через кнопку "назад"
 (function() {
     if (window.history && window.history.replaceState) {
         const url = new URL(window.location);
