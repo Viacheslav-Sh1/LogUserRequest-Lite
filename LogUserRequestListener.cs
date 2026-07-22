@@ -88,6 +88,10 @@ public static class LogUserRequestListener
                 if (path.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
                     return Task.FromResult(true);
             }
+			
+			// Только запросы с реальным Endpoint (мусор отсекается)
+			if (httpContext.GetEndpoint() == null)
+				return Task.FromResult(true);
 
             var realIP = requestInfo.IP;
 
